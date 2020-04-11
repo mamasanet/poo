@@ -24,3 +24,4 @@ class Email():
         self.__dominio     = direccion[0]
         self.__extension   = direccion[1]
         self.__contrasenia = input('Ingrese password de {} :'.format(self.__idCuenta +'@'+ self.__dominio +'.'+self.__extension))
+ 
