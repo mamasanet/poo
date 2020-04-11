@@ -17,3 +17,17 @@ class Email():
     def retornaEmail(self):
         return self.__idCuenta + '@' + self.__dominio + self.__extension
 #Crear Cuenta
+    def crearCuenta(self, direccion):
+        direccion = direccion.split('@')
+        self.__idCuenta = direccion[0]
+        direccion = direccion[1].split('.')
+        self.__dominio = direccion[0]
+        self.__extension = direccion[1]
+
+
+        
+        return self.__extension
+
+if __name__ == "__main__":
+    email = Email('jorge','dsadsa','.com', 'dsads')
+    print(email.crearCuenta('jorge@gmail.com'))
