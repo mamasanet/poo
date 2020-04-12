@@ -6,8 +6,9 @@ def test():
     reader      = csv.reader(archivo, delimiter = ';')
     for fila in reader:
         emailtest= E.Email()
-        print(fila[0])
-        emailtest.crearCuenta(fila[0])
+        flag=emailtest.crearCuenta(fila[0],fila[1])
+        if(flag==True):
+            emailtest.cambiarContrasenia(fila[1])
 
 def punto4(lista):
     archivo     = open('/home/andy/Escritorio/git/poo/Punto1/direccionesgmail.csv')
@@ -39,6 +40,7 @@ def punto4(lista):
 if __name__ == "__main__":
     
     test()
+    print('--------------------------------------------')
     print('Ingrese los siguientes datos:')
     nombre      = input('nombre: ')
     direccion   = input('direccion email: ')
@@ -46,9 +48,10 @@ if __name__ == "__main__":
     email.crearCuenta(direccion)
     print('Estimado {} te enviaremos tus mensajes a la dirección {}'.format(nombre, direccion))
     email.cambiarContrasenia(input("Ingrese su clave para comenzar con el cambio de pass: "))
+    print('--------------------------------------------')
     otroemail   = E.Email()
     otroemail.crearCuenta('informatica.fcefn@gmail.com')
     print('FELICIDADES SE EJECUTO EL PUNTO3')
 
     listaEmails = []
-    punto4(listaEmails)
+    #punto4(listaEmails)

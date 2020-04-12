@@ -33,6 +33,7 @@ class Email():
     def cambiarContrasenia(self,contrasenia):
         if( contrasenia == self.__getContrasenia()):
             self.__setContrasenia(input("Ingrese la nueva clave: "))
+            print('SE CAMBIO LA CONTRASEÑA')
         else:
             print("Las claves no coinciden.")
 
@@ -46,6 +47,7 @@ class Email():
                 self.__setContrasenia(contrasenia)
             else:
                 self.__contrasenia = input('Ingrese password de {} :'.format(self.retornaEmail()))
+            print('Email valido')
             return True
         else:
             print("Email invalido")
