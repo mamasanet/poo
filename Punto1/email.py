@@ -6,10 +6,7 @@ class Email():
 
     #Constructor de la clase emaicambiarContraseniacambiarContrasenial
     def __init__ (self, idCuenta = '', dominio ='', extension = '', contrasenia = ''):
-        self.__idCuenta    = idCuenta
-        self.__dominio     = dominio
-        self.__extension   = extension
-        self.__contrasenia = contrasenia
+        pass
     #Obtener Dominio del objeto
     def getDominio(self):
         return self.__dominio
