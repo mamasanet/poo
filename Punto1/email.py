@@ -1,10 +1,10 @@
 from validar import is_valid_email
 
 class Email():
-    __idCuenta    =''
-    __dominio     =''
-    __extension   =''
-    __contrasenia =''
+    __idCuenta    = ''
+    __dominio     = ''
+    __extension   = ''
+    __contrasenia = None
 
     #Constructor de la clase emaicambiarContraseniacambiarContrasenial
     def __init__ (self, idCuenta = '', dominio ='', extension = '', contrasenia = ' '):
@@ -12,35 +12,41 @@ class Email():
         self.__dominio     = dominio
         self.__extension   = extension
         self.__contrasenia = contrasenia
+    
     #Obtener Dominio del objeto
     def getDominio(self):
         return self.__dominio
+    
     #Retornar Email
     def retornaEmail(self):
         return self.__idCuenta + '@' + self.__dominio + "." + self.__extension
+    
     #Obtener Contrasenia
     def __getContrasenia(self):
         return self.__contrasenia
+    
     #Modificar Contrasenia
     def __setContrasenia(self, contrasenia):
         self.__contrasenia = contrasenia
+    
     #Cambiar contrasenia
     def cambiarContrasenia(self,contrasenia):
         if( contrasenia == self.__getContrasenia()):
             self.__setContrasenia(input("Ingrese la nueva clave: "))
         else:
             print("Las claves no coinciden.")
+
     #Crear Cuenta
-    def crearCuenta(self, direccion, contrasenia = ' '):
+    def crearCuenta(self, direccion, contrasenia = None):
         if(is_valid_email(direccion)):
             idCuenta, extension          = direccion.split('@')
             dominio, extension           = extension.split('.',1)
-            if ( contrasenia != ' ' ):
-                self.__init__(idCuenta, dominio, extension, contrasenia)
+            self.__init__(idCuenta, dominio, extension)
+            if ( contrasenia != None ):
+                self.__setContrasenia(contrasenia)
             else:
                 self.__contrasenia = input('Ingrese password de {} :'.format(self.retornaEmail()))
             return True
         else:
             print("Email invalido")
             return False
-
