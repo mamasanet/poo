@@ -37,6 +37,8 @@ class Email():
             extension , dominio          = extension.split('.',1) 
             self.__init__(idCuenta, dominio, extension)
             self.__contrasenia = input('Ingrese password de {} :'.format(self.retornaEmail()))
+            return True
         else:
             print("Email invalido")
+            return False
 
