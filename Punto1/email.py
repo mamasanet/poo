@@ -17,7 +17,7 @@ class Email():
         return self.__dominio
     #Retornar Email
     def retornaEmail(self):
-        return self.__idCuenta + '@' + self.__dominio + self.__extension
+        return self.__idCuenta + '@' + self.__dominio + "." + self.__extension
     #Obtener Contrasenia
     def __getContrasenia(self):
         return self.__contrasenia
@@ -34,7 +34,7 @@ class Email():
     def crearCuenta(self, direccion):
         if(is_valid_email(direccion)):
             idCuenta, extension          = direccion.split('@')
-            extension , dominio          = extension.split('.',1) 
+            dominio, extension           = extension.split('.',1) 
             self.__init__(idCuenta, dominio, extension)
             self.__contrasenia = input('Ingrese password de {} :'.format(self.retornaEmail()))
             return True
