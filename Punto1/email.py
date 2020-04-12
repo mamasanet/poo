@@ -4,7 +4,7 @@ class Email():
     __extension   =''
     __contrasenia =''
 
-    #Constructor de la clase email
+    #Constructor de la clase emaicambiarContraseniacambiarContrasenial
     def __init__ (self, idCuenta = '', dominio ='', extension = '', contrasenia = ''):
         self.__idCuenta    = idCuenta
         self.__dominio     = dominio
@@ -16,6 +16,18 @@ class Email():
     #Retornar Email
     def retornaEmail(self):
         return self.__idCuenta + '@' + self.__dominio + self.__extension
+    #Obtener Contrasenia
+    def __getContrasenia(self):
+        return self.__contrasenia
+    #Modificar Contrasenia
+    def __setContrasenia(self, contrasenia):
+        self.__contrasenia = contrasenia
+    #Cambiar contrasenia
+    def cambiarContrasenia(self,contrasenia):
+        if( contrasenia == self.__getContrasenia):
+            self.__setContrasenia(input("Ingrese la nueva clave: "))
+        else:
+            print("Las claves no coinciden.")
     #Crear Cuenta
     def crearCuenta(self, direccion):
         direccion          = direccion.split('@')
