@@ -1,3 +1,5 @@
+from validar import is_valid_email
+
 class Email():
     __idCuenta    =''
     __dominio     =''
@@ -30,10 +32,11 @@ class Email():
             print("Las claves no coinciden.")
     #Crear Cuenta
     def crearCuenta(self, direccion):
-        direccion          = direccion.split('@')
-        idCuenta           = direccion[0] #id cuenta
-        extension          = direccion[1].split('.') 
-        dominio            = extension[0] #dominio
-        extension          = extension[1] #extension
-        self.__init__(idCuenta, dominio, extension)
-        self.__contrasenia = input('Ingrese password de {} :'.format(self.retornaEmail()))
+        if(is_valid_email(direccion)):
+            idCuenta, extension          = direccion.split('@')
+            extension , dominio          = extension.split('.',1) 
+            self.__init__(idCuenta, dominio, extension)
+            self.__contrasenia = input('Ingrese password de {} :'.format(self.retornaEmail()))
+        else:
+            print("Email invalido")
+
