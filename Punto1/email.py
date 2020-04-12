@@ -5,8 +5,11 @@ class Email():
     __contrasenia =''
 
     #Constructor de la clase emaicambiarContraseniacambiarContrasenial
-    def __init__ (self, idCuenta = '', dominio ='', extension = '', contrasenia = ''):
-        pass
+    def __init__ (self, idCuenta = '', dominio ='', extension = '', contrasenia = ' '):
+        self.__idCuenta    = idCuenta
+        self.__dominio     = dominio
+        self.__extension   = extension
+        self.__contrasenia = contrasenia
     #Obtener Dominio del objeto
     def getDominio(self):
         return self.__dominio
@@ -28,9 +31,10 @@ class Email():
     #Crear Cuenta
     def crearCuenta(self, direccion):
         direccion          = direccion.split('@')
-        self.__idCuenta    = direccion[0]
-        direccion          = direccion[1].split('.')
-        self.__dominio     = direccion[0]
-        self.__extension   = direccion[1]
+        idCuenta           = direccion[0] #id cuenta
+        extension          = direccion[1].split('.') 
+        dominio            = extension[0] #dominio
+        extension          = extension[1] #extension
+        self.__init__(idCuenta, dominio, extension)
         self.__contrasenia = input('Ingrese password de {} :'.format(self.__idCuenta +'@'+ self.__dominio +'.'+self.__extension))
  
