@@ -24,7 +24,7 @@ class Email():
         self.__contrasenia = contrasenia
     #Cambiar contrasenia
     def cambiarContrasenia(self,contrasenia):
-        if( contrasenia == self.__getContrasenia):
+        if( contrasenia == self.__getContrasenia()):
             self.__setContrasenia(input("Ingrese la nueva clave: "))
         else:
             print("Las claves no coinciden.")
@@ -36,4 +36,4 @@ class Email():
         dominio            = extension[0] #dominio
         extension          = extension[1] #extension
         self.__init__(idCuenta, dominio, extension)
-        self.__contrasenia = input('Ingrese password de {} :'.format(self.__idCuenta +'@'+ self.__dominio +'.'+self.__extension))
+        self.__contrasenia = input('Ingrese password de {} :'.format(self.retornaEmail()))
