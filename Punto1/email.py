@@ -23,7 +23,7 @@ class Email():
     
     #Obtener Contrasenia
     def __getContrasenia(self):
-        return self.__contrasenia
+        return self.__contrasenia  if self.__contrasenia!=None else print("No tiene clave asignada.")
     
     #Modificar Contrasenia
     def __setContrasenia(self, contrasenia):
