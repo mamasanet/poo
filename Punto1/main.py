@@ -2,7 +2,7 @@ import csv
 import email as E
 
 def test():
-    archivo     = open('Punto1/testemail.csv')
+    archivo     = open('C:/Users/User/Desktop/GIT/poo/Punto1/testemail.csv')
     reader      = csv.reader(archivo, delimiter = ';')
     for fila in reader:
         emailtest= E.Email()
@@ -11,7 +11,7 @@ def test():
             emailtest.cambiarContrasenia(fila[1])
 
 def punto4(lista):
-    archivo     = open('Punto1/direccionesgmail.csv')
+    archivo     = open('/home/andy/Escritorio/git/poo/Punto1/direccionesgmail.csv')
     reader      = csv.reader(archivo, delimiter = ';')
     auxiliar    = E.Email()
     i           = 0
@@ -38,7 +38,6 @@ def punto4(lista):
     print("Se han encontrado {} emails con el dominio {}".format( i, dominio))
     
 if __name__ == "__main__":
-    
     test()
     print('--------------------------------------------')
     print('Ingrese los siguientes datos:')
@@ -51,7 +50,7 @@ if __name__ == "__main__":
     print('--------------------------------------------')
     otroemail   = E.Email()
     otroemail.crearCuenta('informatica.fcefn@gmail.com')
-    print('FELICIDADES SE EJECUTO EL PUNTO3')
-
+    print('FELICIDADES SE CREO LA CUENTA (PUNTO 3)')
+    print('--------------------------------------------')
     listaEmails = []
     punto4(listaEmails)
