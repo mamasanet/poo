@@ -38,10 +38,12 @@ class Email():
             print("Las claves no coinciden.")
 
     #Crear Cuenta
+    #--MM: usando self, asignen a cada atributo el valor que corresponda 
     def crearCuenta(self, direccion, contrasenia = None):
         if(is_valid_email(direccion)):
             idCuenta, extension          = direccion.split('@')
             dominio, extension           = extension.split('.',1)
+            #--MM: no llamen al constructor directamente, solo cuando se cree la instancia.
             self.__init__(idCuenta, dominio, extension)
             if ( contrasenia != None ):
                 self.__setContrasenia(contrasenia)
